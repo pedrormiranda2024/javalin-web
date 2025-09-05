@@ -1,0 +1,50 @@
+package com.efigenio;
+
+import java.util.ArrayList;
+
+import com.efigenio.controllers.CadastroController;
+import com.efigenio.controllers.IndexController;
+import com.efigenio.models.*;
+
+import freemarker.template.Configuration;
+import io.javalin.Javalin;
+import io.javalin.http.staticfiles.Location;
+import io.javalin.rendering.template.JavalinFreemarker;
+
+public class Main {
+    // Simulando banco de dados!
+    public static ArrayList<Contato> databaseContato = new ArrayList<>();
+
+    public static void main(String[] args) {
+
+        // Contato contato = new Contato("Augusto", "auguistinho123@email.com", "0800");
+        // Contato contato2 = new Contato("Augusto", "auguistinho123@email.com",
+        // "0800");
+        // Contato contato3 = new Contato("Augusto", "auguistinho123@email.com",
+        // "0800");
+
+        // Agenda agenda = new Agenda("info24", "online");
+
+        // agenda.adicionarContato(contato);
+        // agenda.adicionarContato(contato2);
+        // agenda.adicionarContato(contato3);
+
+        // System.out.println(agenda);
+
+        Configuration cfg = new Configuration(Configuration.VERSION_2_3_34);
+        cfg.setClassForTemplateLoading(Main.class, "/templates");
+        cfg.setDefaultEncoding("UTF-8");
+
+        Javalin app = Javalin.create(config -> {
+            config.staticFiles.add("/public", Location.CLASSPATH);
+            config.fileRenderer(new JavalinFreemarker(cfg));
+        }).start(7000);
+
+        IndexController indexController = new IndexController();
+        CadastroController cadastroController = new CadastroController();
+
+        app.get("/", indexController.get);
+        app.get("/cadastro", cadastroController.get);
+
+    }
+}
