@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <form action="" method="post" >
+    <form action="/contatos" method="post" >
         <label for="nome">NOME:</label>
         <input type="text" name="nome">
 
@@ -17,6 +17,7 @@
         <label for="telefone">Telefone:</label>
         <input type="text" name="telefone">
 
+        <button  type="submit">Cadastrar Contato</button>
     </form>
 
 </body>
