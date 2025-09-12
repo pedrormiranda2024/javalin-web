@@ -7,7 +7,8 @@
 </head>
 <body>
 
-    <h1>Lista de Contatos:</h1>>
+    <a href="/cadastro">Cadastrar Contatos</a>
+    <h1>Lista de Contatos:</h1>
 
 </body>
 </html>

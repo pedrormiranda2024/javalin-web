@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <form method="post" >
+    <form action="" method="post" >
         <label for="nome">NOME:</label>
         <input type="text" name="nome">
 

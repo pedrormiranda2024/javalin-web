@@ -2,7 +2,7 @@ package com.efigenio;
 
 import java.util.ArrayList;
 
-import com.efigenio.controllers.CadastroController;
+import com.efigenio.controllers.ContatoController;
 import com.efigenio.controllers.IndexController;
 import com.efigenio.models.*;
 
@@ -41,10 +41,13 @@ public class Main {
         }).start(7000);
 
         IndexController indexController = new IndexController();
-        CadastroController cadastroController = new CadastroController();
+        ContatoController contatoController = new ContatoController();
 
         app.get("/", indexController.get);
-        app.get("/cadastro", cadastroController.get);
+        app.get("/cadastro", contatoController.get);
+        app.post("/contatos", contatoController.post);
+
+        // app.get("/cadastro", contatoController.post);
 
     }
 }
