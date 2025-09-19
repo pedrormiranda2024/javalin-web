@@ -14,11 +14,12 @@ public class Agenda {
     }
 
     public void adicionarContato(Contato contato) {
-        Main.databaseContato.add(contato);
+        // Main.databaseContato.add(contato);
     }
 
     public ArrayList<Contato> listarContatos() {
-        return Main.databaseContato;
+        // return Main.databaseContato;
+        return new ArrayList<>();
     }
 
     public String toString() {
